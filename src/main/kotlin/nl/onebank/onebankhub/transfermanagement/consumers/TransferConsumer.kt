@@ -1,8 +1,9 @@
-package nl.onebank.onebankhub.consumers
+package nl.onebank.onebankhub.transfermanagement.consumers
 
 import nl.onebank.dto.TransferDto
-import nl.onebank.onebankhub.*
-import nl.onebank.onebankhub.service.TransferHistoryService
+import nl.onebank.onebankhub.shared.GROUP_ID
+import nl.onebank.onebankhub.shared.TRANSFER_TOPIC
+import nl.onebank.onebankhub.transfermanagement.service.TransferHistoryService
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component

@@ -1,4 +1,4 @@
-package nl.onebank.onebankhub.service
+package nl.onebank.onebankhub.transfermanagement.service
 
 import nl.onebank.dto.TransferDto
 import org.slf4j.LoggerFactory
