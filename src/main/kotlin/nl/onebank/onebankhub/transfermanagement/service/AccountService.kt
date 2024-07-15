@@ -13,7 +13,7 @@ class AccountService(val accountRepository: AccountRepository) {
         return account
     }
 
-    fun retrieveAccountByIBAN(iban: String) : Account {
+    fun retrieveAccountByIBAN(iban: String) : Account? {
         return accountRepository.getAccountByIBAN(iban)
     }
 }

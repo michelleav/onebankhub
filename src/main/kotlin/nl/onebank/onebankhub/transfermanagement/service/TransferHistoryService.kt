@@ -20,9 +20,12 @@ class TransferHistoryService(var transferHistoryRepository: TransferHistoryRepos
     fun createTransferHistory(transferDto: TransferDto) {
         var senderAcc = accountService.retrieveAccountByIBAN(transferDto.senderIBAN)
         var receiverAcc = accountService.retrieveAccountByIBAN(transferDto.receiverIBAN)
-
-        createTransactionHistory(senderAcc, receiverAcc, transferDto)
-        updateAccountBalances(senderAcc, receiverAcc, transferDto.amount)
+        if(senderAcc == null || receiverAcc == null) {
+            logger.info("Invalid sender and/or receiver IBAN supplied")
+        } else {
+            createTransactionHistory(senderAcc, receiverAcc, transferDto)
+            updateAccountBalances(senderAcc, receiverAcc, transferDto.amount)
+        }
     }
 
     private fun createTransactionHistory(senderAcc: Account, receiverAcc: Account, transferDto: TransferDto) {
